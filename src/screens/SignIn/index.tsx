@@ -9,7 +9,6 @@ export function SignIn() {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="light" />
       <Image source={IllustrationImg} style={styles.image} resizeMode="stretch"></Image>
       <View style={styles.content}>
         <Text style={styles.title}>
