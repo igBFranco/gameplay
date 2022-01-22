@@ -1,11 +1,14 @@
 import React from "react";
 import { View, Text } from "react-native";
+import { Avatar } from "../Avatar";
 import { styles } from "./styles";
 
 export function Profile() {
     return(
         <View style={styles.container}>
-            <View style={styles.header}>
+
+            <Avatar urlImage="https://github.com/igBFranco.png"></Avatar>
+            <View>
                 <View style={styles.user}>
                     <Text style={styles.greeting}>
                         Olá,
