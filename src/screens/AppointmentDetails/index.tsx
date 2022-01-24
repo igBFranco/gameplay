@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ImageBackground, Text } from "react-native";
+import { View, ImageBackground, Text, FlatList } from "react-native";
 import { Fontisto } from '@expo/vector-icons';
 import { BorderlessButton } from "react-native-gesture-handler";
 import { Background } from '../../components/Background';
@@ -8,8 +8,25 @@ import { Header } from "../../components/Header";
 import { theme } from "../../global/styles/theme";
 import BannerImg from '../../assets/banner.png'
 import { styles } from "./styles";
+import { Member } from "../../components/Member";
+import { ListDivider } from "../../components/ListDivider";
 
 export function AppointmentDetails() {
+    const members = [
+        {
+            id: '1',
+            username: 'Igor',
+            avatar_url: 'https://github.com/igBFranco.png',
+            status: 'online'
+        },
+        {
+            id: '2',
+            username: 'Guilherme Rambo',
+            avatar_url: 'https://github.com/insidegui.png',
+            status: 'offline'
+        }
+    ]
+
     return (
         <Background>
             <Header
@@ -44,8 +61,18 @@ export function AppointmentDetails() {
                 title="Jogadores"
                 subtitle="Total 3"    
             >
-                
             </ListHeader>
+            <FlatList
+                data={members}
+                keyExtractor={item =>item.id}
+                renderItem={({item}) => (
+                    <Member data={item}></Member>
+                )}
+                ItemSeparatorComponent={() => <ListDivider></ListDivider>}
+                style={styles.members}
+            >
+                
+            </FlatList>
         </Background>
     );
 }
