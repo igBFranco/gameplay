@@ -21,7 +21,7 @@ export type AppointmentProps = {
     guild: GuildProps;
     category: string;
     date: string;
-    descruiption: string;
+    description: string;
 }
 
 type Props = RectButtonProps &{
