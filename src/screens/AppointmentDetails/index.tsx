@@ -10,6 +10,7 @@ import BannerImg from '../../assets/banner.png'
 import { styles } from "./styles";
 import { Member } from "../../components/Member";
 import { ListDivider } from "../../components/ListDivider";
+import { ButtonIcon } from "../../components/ButtonIcon";
 
 export function AppointmentDetails() {
     const members = [
@@ -70,9 +71,13 @@ export function AppointmentDetails() {
                 )}
                 ItemSeparatorComponent={() => <ListDivider></ListDivider>}
                 style={styles.members}
-            >
-                
+            >   
             </FlatList>
+
+            <View style={styles.footer}>
+                <ButtonIcon title="Entrar no servidor do Discord">
+                </ButtonIcon>
+            </View>
         </Background>
     );
 }
