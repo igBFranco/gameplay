@@ -9,6 +9,7 @@ import { Profile } from "../../components/Profile";
 import { ListDivider } from "../../components/ListDivider";
 import { styles } from "./styles";
 import { useNavigation } from "@react-navigation/native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export function Home() {
 
@@ -51,11 +52,15 @@ export function Home() {
         navigation.navigate('AppointmentDetails');
     }
 
+    function handleAppointmentCreate(){
+        navigation.navigate('AppointmentCreate');
+    }
+
     return(
         <Background>
             <View style={styles.header}>
                 <Profile></Profile>
-                <ButtonAdd></ButtonAdd>
+                <ButtonAdd onPress={handleAppointmentCreate}></ButtonAdd>
             </View>
                 <CategorySelect
                     categorySelected={category}
