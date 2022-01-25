@@ -55,5 +55,14 @@ export const styles = StyleSheet.create({
         fontFamily: theme.fonts.text500,
         color: theme.colors.highlight
     },
-    
+    caracteresLimit: {
+        fontFamily: theme.fonts.text400,
+        color: theme.colors.highlight, 
+        fontSize:13
+    },
+    footer: {
+        marginVertical: 20,
+        marginBottom: 56,
+
+    }
 });
