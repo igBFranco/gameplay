@@ -38,5 +38,22 @@ export const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 8,
         borderColor: theme.colors.secondary50
-    }
+    },
+    field: {
+        width: '100%',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginTop: 30
+    },
+    column: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    divider: {
+        marginRight: 4,
+        fontSize: 15,
+        fontFamily: theme.fonts.text500,
+        color: theme.colors.highlight
+    },
+    
 });
