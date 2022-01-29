@@ -1,4 +1,4 @@
-import React, { } from "react";
+import React from "react";
 import { Text, View, TextInput, Image} from 'react-native';
 import { StatusBar } from "expo-status-bar";
 import { styles } from './styles';
@@ -6,12 +6,13 @@ import IllustrationImg from '../../assets/illustration.png';
 import { ButtonIcon } from '../../components/ButtonIcon';
 import { useNavigation } from "@react-navigation/native";
 import { Background } from '../../components/Background';
-
+import { useAuth } from '../../hooks/auth';
 
 
 export function SignIn() {
 
   const navigation = useNavigation();
+  const { user } = useAuth();
 
   function handleSignIn(){
     navigation.navigate('Home');
