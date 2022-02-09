@@ -27,7 +27,8 @@ type AuthProviderProps = {
 
 type AuthorizationResponse = AuthSession.AuthSessionResult & {
     params: {
-        access_token: string;
+        access_token?: string;
+        error?: string;
     }
 }
 
@@ -46,8 +47,8 @@ function AuthProvider({ children }: AuthProviderProps) {
 
             const { type, params } = await AuthSession.startAsync({ authUrl }) as AuthorizationResponse;
 
-            if (type === "success"){
-                api.defaults.headers.Authorization = `Bearer ${params.access_token}`;
+            if (type === "success" && !params.error){
+                api.defaults.headers.authorization = `Bearer ${params.access_token}`;
 
                 const userInfo = await api.get("/users/@me");
                 const firstName = userInfo.data.username.split(' ')[0];
@@ -59,13 +60,11 @@ function AuthProvider({ children }: AuthProviderProps) {
                     firstName,
                     token: params.access_token,
                 });
-                setLoading(false);
-            }else{
-                setLoading(false);
             }
-
         } catch (error) {
             throw new Error('Nao foi possivel autenticar');
+        } finally {
+            setLoading(false);
         }
     }
 
