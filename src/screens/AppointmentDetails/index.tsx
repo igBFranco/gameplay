@@ -15,6 +15,7 @@ import { useRoute } from "@react-navigation/native";
 import { AppointmentProps } from "../../components/Appointment";
 import { api } from "../../services/api";
 import { Load } from "../../components/Load";
+import * as Linking from 'expo-linking';
 
 
 type Params = {
@@ -58,6 +59,10 @@ export function AppointmentDetails() {
             message,
             url: widget.instant_invite,
         });
+    }
+
+    function handleOpenGuild(){
+        Linking.openURL(widget.instant_invite);
     }
 
     useEffect(() => {
@@ -119,7 +124,7 @@ export function AppointmentDetails() {
 
 
             <View style={styles.footer}>
-                <ButtonIcon title="Entrar no servidor do Discord">
+                <ButtonIcon title="Entrar no servidor do Discord" onPress={handleOpenGuild}>
                 </ButtonIcon>
             </View>
         </Background>
