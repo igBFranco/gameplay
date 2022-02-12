@@ -121,12 +121,14 @@ export function AppointmentDetails() {
                 </>
             }
 
-
-
+            {
+                guildSelected.guild.owner &&
             <View style={styles.footer}>
                 <ButtonIcon title="Entrar no servidor do Discord" onPress={handleOpenGuild}>
                 </ButtonIcon>
             </View>
+            }
+
         </Background>
     );
 }
